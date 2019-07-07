@@ -33,6 +33,12 @@ object app extends ScalaModule with ScalafmtModule {
     ivy"dev.zio::zio::1.0.0-RC9",
     ivy"dev.zio::zio-streams::1.0.0-RC9",
     ivy"com.softwaremill.tapir::tapir-core:0.8.9",
+    ivy"com.softwaremill.tapir::tapir-json-circe:0.8.9",
+    ivy"com.softwaremill.tapir::tapir-sttp-client:0.8.9",
+    ivy"io.circe::circe-core:0.11.1",
+    ivy"io.circe::circe-generic:0.11.1",
+    ivy"io.circe::circe-parser:0.11.1",
+    ivy"com.softwaremill.sttp::core:1.6.0",
   )
 }
 
