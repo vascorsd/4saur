@@ -17,15 +17,15 @@ object app extends ScalaModule with ScalafmtModule {
       "-unchecked",
       "-Ypartial-unification",
       "-Ypatmat-exhaust-depth", "off",
-      "-Ywarn-unused:locals,imports"
+      "-Ywarn-unused:locals,imports",
     )
 
   override
   def scalacPluginIvyDeps =
     Agg(
-      ivy"org.scalamacros:::paradise:2.1.1",
       ivy"org.typelevel::kind-projector:0.10.3",
-      ivy"com.olegpy::better-monadic-for:0.3.0"
+      ivy"com.olegpy::better-monadic-for:0.3.0",
+      ivy"io.tryp:::splain:0.4.1",
     )
 
   override 
@@ -38,6 +38,7 @@ object app extends ScalaModule with ScalafmtModule {
     ivy"io.circe::circe-core:0.11.1",
     ivy"io.circe::circe-generic:0.11.1",
     ivy"io.circe::circe-parser:0.11.1",
+    ivy"io.circe::circe-generic-extras:0.11.1",
     ivy"com.softwaremill.sttp::core:1.6.0",
   )
 }
