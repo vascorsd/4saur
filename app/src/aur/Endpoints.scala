@@ -1,6 +1,8 @@
 package aur
 
 import aur.search._
+import aur.info._
+import io.circe.Json
 import tapir._
 import tapir.json.circe._
 
@@ -11,8 +13,8 @@ object Endpoints {
     .in("rpc" / "")
     .in(query[Version]("v").description("AUR RPC version in use"))
     .in(query[QueryType]("type").description("Type of query to execute"))
-    .errorOut(jsonBody[Result])
-    .out(jsonBody[Result])
+    .errorOut(jsonBody[Json])
+    .out(jsonBody[Json])
 
   lazy
   val searchCall = baseCall
@@ -22,6 +24,15 @@ object Endpoints {
     } { s =>
       (s.version, s.queryType, s.params)
     }
+
+  lazy
+  val infoCall = baseCall
+    .in(infoInput)
+
+  private lazy
+  val infoInput =
+    query[List[String]]("arg[]")
+      .mapTo(Info)
 
   private lazy
   val searchInput =

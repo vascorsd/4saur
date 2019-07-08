@@ -3,7 +3,7 @@ package aur.search
 import aur._
 
 
-case class Search private
+case class Search private[aur]
 (
   version: Version,
   queryType: QueryType,
