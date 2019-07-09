@@ -13,8 +13,8 @@ object Endpoints {
     .in("rpc" / "")
     .in(query[Version]("v").description("AUR RPC version in use"))
     .in(query[QueryType]("type").description("Type of query to execute"))
-    .errorOut(jsonBody[Json])
-    .out(jsonBody[Json])
+    .errorOut(jsonBody[Response])
+    .out(jsonBody[Response])
 
   lazy
   val searchCall = baseCall

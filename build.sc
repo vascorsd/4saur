@@ -23,6 +23,7 @@ object app extends ScalaModule with ScalafmtModule {
   override
   def scalacPluginIvyDeps =
     Agg(
+      ivy"org.scalamacros:::paradise:2.1.1",
       ivy"org.typelevel::kind-projector:0.10.3",
       ivy"com.olegpy::better-monadic-for:0.3.0",
       ivy"io.tryp:::splain:0.4.1",
@@ -40,6 +41,8 @@ object app extends ScalaModule with ScalafmtModule {
     ivy"io.circe::circe-parser:0.11.1",
     ivy"io.circe::circe-generic-extras:0.11.1",
     ivy"com.softwaremill.sttp::core:1.6.0",
+    ivy"org.typelevel::kittens:1.2.1",
+    ivy"io.scalaland::catnip:0.5.1",
   )
 }
 

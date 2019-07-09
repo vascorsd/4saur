@@ -2,6 +2,8 @@ import aur._
 import aur.info.Info
 import aur.search._
 
+import cats.implicits._
+
 object Main extends App {
   println(Endpoints.searchCall.show)
 
@@ -16,15 +18,15 @@ object Main extends App {
 
   val result = request.send().unsafeBody
 
-  println(s"result: ${result}")
+  println(s"result: ${result.show}")
 
 
-  val requestI = Endpoints.infoCall
-    .toSttpRequest(uri"https://aur.archlinux.org/")
-    .apply(rpcVersion, QueryType.Info, Info("bloop" :: "guix" :: Nil))
-
-  val resultI = requestI.send().unsafeBody
-
-  println(s"result: ${resultI}")
+//  val requestI = Endpoints.infoCall
+//    .toSttpRequest(uri"https://aur.archlinux.org/")
+//    .apply(rpcVersion, QueryType.Info, Info("bloop" :: "guix" :: Nil))
+//
+//  val resultI = requestI.send().unsafeBody
+//
+//  println(s"result: ${resultI}")
 
 }
