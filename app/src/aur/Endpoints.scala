@@ -6,7 +6,8 @@ import tapir._
 import tapir.json.circe._
 
 object Endpoints {
-  lazy val baseCall = endpoint.get
+  lazy val baseCall = endpoint
+    .get
     .in("rpc" / "")
     .in(query[Version]("v").description("AUR RPC version in use"))
     .in(query[QueryType]("type").description("Type of query to execute"))

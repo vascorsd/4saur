@@ -1,6 +1,5 @@
 package aur.info
 
-case class Info
-(
-  arg: List[String],
+case class Info(
+    arg: List[String]
 )
