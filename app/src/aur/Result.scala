@@ -54,22 +54,55 @@ object Meta {
 @Semi(ShowPretty)
 @ConfiguredJsonCodec
 case class Data(
+    // ================================== Search type:
     @JsonKey("ID")
     id: Long,
     @JsonKey("Name")
     name: String,
-    PackageBaseID: Long,
-    PackageBase: String,
-    Version: String,
-    Description: String,
-    URL: String,
-    NumVotes: Long,
-    Popularity: BigDecimal,
-    OutOfDate: Option[Long],
-    Maintainer: Option[String],
-    FirstSubmitted: Long,
-    LastModified: Long,
-    URLPath: String
+    @JsonKey("PackageBaseID")
+    packageBaseId: Long,
+    @JsonKey("PackageBase")
+    packageBase: String,
+    @JsonKey("Version")
+    version: String,
+    @JsonKey("Description")
+    description: String,
+    @JsonKey("URL")
+    url: String,
+    @JsonKey("NumVotes")
+    numVotes: Long,
+    @JsonKey("Popularity")
+    popularity: BigDecimal,
+    @JsonKey("OutOfDate")
+    outOfDate: Option[Long],
+    @JsonKey("Maintainer")
+    maintainer: Option[String],
+    @JsonKey("FirstSubmitted")
+    firstSubmitted: Long,
+    @JsonKey("LastModified")
+    lastModified: Long,
+    URLPath: String,
+    // ================================== Info type has extra:
+    @JsonKey("Depends")
+    depends: Option[List[String]],
+    @JsonKey("MakeDepends")
+    makeDepends: Option[List[String]],
+    @JsonKey("OptDepends")
+    optDepends: Option[List[String]],
+    @JsonKey("CheckDepends")
+    checkDepends: Option[List[String]],
+    @JsonKey("Conflicts")
+    conflicts: Option[List[String]],
+    @JsonKey("Provides")
+    provides: Option[List[String]],
+    @JsonKey("Replaces")
+    replaces: Option[List[String]],
+    @JsonKey("Groups")
+    groups: Option[List[String]],
+    @JsonKey("License")
+    license: Option[List[String]],
+    @JsonKey("Keywords")
+    keywords: Option[List[String]]
 )
 
 object Data {

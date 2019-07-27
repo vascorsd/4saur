@@ -1,22 +1,21 @@
 import $ivy.`com.lihaoyi::mill-contrib-bloop:0.4.1`
+import $ivy.`io.github.davidgregory084::mill-tpolecat:0.1.2`
 
 import mill._
 import mill.scalalib._
 import mill.scalalib.scalafmt.ScalafmtModule
-import mill.contrib.Bloop
+import io.github.davidgregory084.TpolecatModule
 
-object app extends ScalaModule with ScalafmtModule {
+object app extends ScalaModule with ScalafmtModule with TpolecatModule {
   def scalaVersion = "2.12.8"
 
-  def scalacOptions =
-    Seq(
-      "-feature",
-      "-deprecation",
-      "-unchecked",
-      "-Ypartial-unification",
-      "-Ypatmat-exhaust-depth", "off",
-      "-Ywarn-unused:locals,imports",
-    )
+  def scalacOptions = T {
+    super
+      .scalacOptions()
+      .filterNot(Set(
+        "-Xfatal-warnings",
+      ))
+  }
 
   def scalacPluginIvyDeps =
     Agg(

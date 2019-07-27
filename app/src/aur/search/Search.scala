@@ -10,12 +10,12 @@ case class Search private[aur] (
 
 object Search {
 
-  def make(kind: SearchKind, value: String): Search = {
+  def make(by: Criteria, value: String): Search = {
     Search(
       rpcVersion,
       QueryType.Search,
       Params(
-        by = Some(kind),
+        by = Some(by),
         arg = value
       )
     )
@@ -30,6 +30,6 @@ object Search {
 }
 
 case class Params(
-    by: Option[SearchKind], // when by is not passed, the server uses NameDesc
+    by: Option[Criteria], // when by is not passed, the server uses NameDesc
     arg: String
 )

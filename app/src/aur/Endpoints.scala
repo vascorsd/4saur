@@ -25,18 +25,24 @@ object Endpoints {
 
   lazy val infoCall = baseCall
     .in(infoInput)
+    .mapIn[Info] {
+      case (v, qType, params) =>
+        Info(v, qType, params)
+    } { i =>
+      (i.version, i.queryType, i.params)
+    }
 
   private lazy val infoInput =
     query[List[String]]("arg[]")
-      .mapTo(Info)
+      .mapTo(info.Params)
 
   private lazy val searchInput =
-    query[Option[SearchKind]]("by")
+    query[Option[Criteria]]("by")
       .description("The kind of search that is going to be performed")
       .and(
         query[String]("arg")
           .description("The argument/value passed to the selected search")
       )
-      .mapTo(Params)
+      .mapTo(search.Params)
 
 }
