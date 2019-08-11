@@ -1,4 +1,4 @@
-import $ivy.`com.lihaoyi::mill-contrib-bloop:0.4.1`
+import $ivy.`com.lihaoyi::mill-contrib-bloop:0.5.0`
 import $ivy.`io.github.davidgregory084::mill-tpolecat:0.1.2`
 
 import mill._

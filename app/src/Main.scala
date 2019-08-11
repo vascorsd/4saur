@@ -22,7 +22,8 @@ object Main extends App {
 
   println(s"result: ${result.show}")
 
-  val requestI = Endpoints.infoCall
+  val requestI = Endpoints
+    .infoCall
     .toSttpRequest(uri"https://aur.archlinux.org/")
     .apply(
       Info.fetch("bloop", "guix")
